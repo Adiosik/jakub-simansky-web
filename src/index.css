@@ -9,9 +9,7 @@
 
 *{ box-sizing:border-box; }
 html,body,#root{ margin:0; padding:0; }
-/* vždy rezervuj místo pro svislý posuvník => při otevření sekce neskáče šířka obsahu */
-html{ scrollbar-gutter:stable; }
-body{ background:#E6E1D3; }
+html,body{ background:#E6E1D3; }
 
 :root{
   --papir:#E6E1D3; --papir-2:#DBD5C4; --saze:#1C1814;
