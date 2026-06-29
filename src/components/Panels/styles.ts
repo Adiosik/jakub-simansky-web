@@ -10,7 +10,9 @@ export const panel = (open: boolean): SxProps<Theme> => ({
 export const inner: SxProps<Theme> = { overflow: "hidden", minHeight: 0 };
 export const card = (open: boolean): SxProps<Theme> => ({
   position: "relative",
-  maxWidth: 1320, width: "100%", mx: "auto", scrollMarginTop: "1rem",
+  maxWidth: 1320, width: "100%", mx: "auto",
+  // zastaví scroll pod sticky headerem, ať je vidět i nadpis sekce (header je na mobilu vyšší)
+  scrollMarginTop: { xs: "7rem", sm: "4.5rem" },
   mt: "1.73rem", // vzduch mezi tlačítky a rozdělovačem (linka je na horní hraně karty)
   p: "clamp(1.6rem,4vw,3rem) clamp(1rem,4vw,3rem)",
   // rozdělovač se „nakreslí" zleva doprava (progress bar) až po sjetí dolů

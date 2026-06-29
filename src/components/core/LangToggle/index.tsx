@@ -9,7 +9,7 @@ export default function LangToggle({ lang, onChange }: { lang: Lang; onChange: (
   return (
     <Box sx={styles.wrap}>
       <Box component="button" type="button" sx={styles.button(lang === "csCZ")} onClick={() => onChange("csCZ")}>CZ</Box>
-      <Box component="span" sx={styles.sep}>/</Box>
+      <Box component="span" sx={styles.sep} />
       <Box component="button" type="button" sx={styles.button(lang === "enUS")} onClick={() => onChange("enUS")}>EN</Box>
     </Box>
   );

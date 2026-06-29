@@ -1,7 +1,8 @@
 import type { SxProps, Theme } from "@mui/material/styles";
 
 export const footer: SxProps<Theme> = {
-  position: "sticky",
+  // na mobilu normální (až dole po odscrollování), na desktopu sticky
+  position: { xs: "static", sm: "sticky" },
   bottom: 0,
   zIndex: 40,
   background: "var(--bar)",
@@ -12,14 +13,23 @@ export const footer: SxProps<Theme> = {
   letterSpacing: "0.16em",
   textTransform: "uppercase",
   display: "flex",
+  // mobil: pod sebou (ikony nahoře na celou šířku, kontakt dole); desktop: jeden řádek
+  flexDirection: { xs: "column", sm: "row" },
   justifyContent: "space-between",
   flexWrap: "wrap",
-  gap: "0.8rem 1.5rem",
-  alignItems: "center",
+  gap: "1rem 1.5rem",
+  alignItems: { xs: "stretch", sm: "center" },
   color: "rgba(28,24,20,.7)",
 };
 
-export const social: SxProps<Theme> = { display: "flex", gap: "1.15rem", alignItems: "center" };
+export const social: SxProps<Theme> = {
+  display: "flex",
+  alignItems: "center",
+  gap: "1.15rem",
+  // na mobilu ikony roztažené na celou šířku
+  width: { xs: "100%", sm: "auto" },
+  justifyContent: { xs: "space-between", sm: "flex-start" },
+};
 
 export const contact: SxProps<Theme> = { display: "flex", alignItems: "center", gap: "0.55rem" };
 

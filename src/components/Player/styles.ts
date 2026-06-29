@@ -12,7 +12,8 @@ export const player: SxProps<Theme> = {
   boxShadow: "var(--stin)",
 };
 
-export const top: SxProps<Theme> = { display: "flex", alignItems: "center", gap: "0.55rem" };
+// mobil: play + obal + přepínač na 1. řádku, název se zalomí na 2. řádek; desktop: jeden řádek
+export const top: SxProps<Theme> = { display: "flex", flexWrap: "wrap", alignItems: "center", columnGap: "0.7rem", rowGap: "0.6rem" };
 
 export const playBtn: SxProps<Theme> = {
   flex: "0 0 auto",
@@ -29,19 +30,25 @@ export const playBtn: SxProps<Theme> = {
   "& svg": { width: "100%", height: "100%", display: "block" },
 };
 
-export const meta: SxProps<Theme> = { minWidth: 0, flex: 1 };
-export const album: SxProps<Theme> = { display: "flex", alignItems: "center", gap: "0.6rem" };
 export const cover: SxProps<Theme> = { width: 64, height: 64, flex: "0 0 auto", border: "1px solid var(--saze)", overflow: "hidden" };
-export const titles: SxProps<Theme> = { minWidth: 0, flex: "1 1 auto", maxWidth: 360 };
+// na mobilu se název přesune na celý 2. řádek (order + flex-basis 100 %)
+export const titles: SxProps<Theme> = {
+  minWidth: 0,
+  flex: "1 1 auto",
+  maxWidth: { sm: 360 },
+  order: { xs: 2, sm: 0 },
+  flexBasis: { xs: "100%", sm: "auto" },
+};
 export const title: SxProps<Theme> = { fontSize: "0.84rem", fontWeight: 600, lineHeight: 1.18 };
 export const sub: SxProps<Theme> = { fontSize: "0.63rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(28,24,20,.55)", mt: "0.12rem" };
 
 // celý sloupec šipek odsazený úplně doprava
-export const navs: SxProps<Theme> = { flex: "0 0 auto", ml: "auto", display: "flex", flexDirection: "column", gap: "0.25rem" };
+export const navs: SxProps<Theme> = { flex: "0 0 auto", ml: "auto", display: "flex", flexDirection: "column", gap: { xs: "0.4rem", sm: "0.25rem" } };
 export const nav: SxProps<Theme> = {
   flex: "0 0 auto",
-  width: 26,
-  height: 22,
+  // na mobilu větší (lepší klikání), na desktopu kompaktní
+  width: { xs: 44, sm: 26 },
+  height: { xs: 36, sm: 22 },
   p: 0,
   border: "1.5px solid var(--saze)",
   background: "none",
@@ -53,7 +60,7 @@ export const nav: SxProps<Theme> = {
   transition: "background .15s ease, color .15s ease",
   "&:hover": { background: "var(--saze)", color: "var(--papir)" },
   "&:focus-visible": { outline: "3px solid var(--stroj)", outlineOffset: "2px" },
-  "& svg": { width: 12, height: 12, display: "block" },
+  "& svg": { width: { xs: 16, sm: 12 }, height: { xs: 16, sm: 12 }, display: "block" },
 };
 
 // Dva nezávislé sloupce (každý vlastní výšky řádků => žádné sdílené mezery).
@@ -66,7 +73,8 @@ export const tracklist: SxProps<Theme> = {
   overflowY: "auto",
   display: "flex",
   flexDirection: { xs: "column", sm: "row" },
-  gap: "0.6rem",
+  // na mobilu (sloupce pod sebou) malá mezera jako mezi řádky, na desktopu sloupcová mezera
+  gap: { xs: "0.05rem", sm: "0.6rem" },
   alignItems: "flex-start",
 };
 export const trackCol: SxProps<Theme> = {

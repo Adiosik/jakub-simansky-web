@@ -29,7 +29,10 @@ export const link = (contact: boolean): SxProps<Theme> => ({
   height: contact ? "auto" : "20px",
   textDecoration: "none",
   transition: "transform .15s ease",
-  "& svg": { width: contact ? 32 : 18, height: contact ? 32 : 18, display: "block", fill: "currentColor", flex: "0 0 auto" },
+  "& svg": {
+    width: contact ? 32 : { xs: 26, sm: 18 }, height: contact ? 32 : { xs: 26, sm: 18 },
+    display: "block", fill: "currentColor", flex: "0 0 auto",
+  },
   "&:hover": { transform: "translateY(-2px)" },
   "&:focus-visible": { outline: "2px solid var(--stroj)", outlineOffset: "3px" },
   "& .sim-tip": tipBase,

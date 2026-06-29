@@ -17,6 +17,7 @@ import SectionNav from "./components/SectionNav";
 import Landscape from "./components/Landscape";
 import Panels, { type PanelKey } from "./components/Panels";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/core/ScrollToTop";
 
 const rootSx: SxProps<Theme> = {
   background: "var(--papir)",
@@ -95,6 +96,7 @@ export default function SimanskyHero() {
         texts={texts} lang={lang} player={player} cardRef={panelCardRef} />
 
       <Footer texts={texts} />
+      <ScrollToTop />
     </Box>
   );
 }

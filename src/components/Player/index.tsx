@@ -28,21 +28,17 @@ export default function Player({ texts, player }: Props) {
           onClick={toggle} aria-pressed={playing} aria-label={playing ? texts.player.stop : texts.player.play}>
           <SoundholeButton playing={playing} />
         </Box>
-        <Box sx={styles.meta}>
-          <Box sx={styles.album}>
-            <Box sx={styles.cover}><AlbumCover album={album} index={albumIdx} /></Box>
-            <Box sx={styles.titles}>
-              <Box sx={styles.title}>{album.artist ? album.artist + " — " : ""}{album.title}</Box>
-              <Box sx={styles.sub}>{album.year} · {album.label}</Box>
-            </Box>
-            <Box sx={styles.navs}>
-              <Box component="button" type="button" sx={styles.nav} onClick={prev} aria-label={texts.player.prevAlbum}>
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 10l4-4 4 4" /></svg>
-              </Box>
-              <Box component="button" type="button" sx={styles.nav} onClick={next} aria-label={texts.player.nextAlbum}>
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 6l4 4 4-4" /></svg>
-              </Box>
-            </Box>
+        <Box sx={styles.cover}><AlbumCover album={album} index={albumIdx} /></Box>
+        <Box sx={styles.titles}>
+          <Box sx={styles.title}>{album.artist ? album.artist + " — " : ""}{album.title}</Box>
+          <Box sx={styles.sub}>{album.year} · {album.label}</Box>
+        </Box>
+        <Box sx={styles.navs}>
+          <Box component="button" type="button" sx={styles.nav} onClick={prev} aria-label={texts.player.prevAlbum}>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 10l4-4 4 4" /></svg>
+          </Box>
+          <Box component="button" type="button" sx={styles.nav} onClick={next} aria-label={texts.player.nextAlbum}>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 6l4 4 4-4" /></svg>
           </Box>
         </Box>
       </Box>
