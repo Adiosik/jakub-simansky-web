@@ -23,7 +23,9 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - run: npm ci
+      # npm install (ne ci) — doplní nativní balíčky pro platformu CI (Linux),
+      # které lockfile z Windows nemusí obsahovat (rollup atd.)
+      - run: npm install --no-audit --no-fund
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
