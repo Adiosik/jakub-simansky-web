@@ -3,6 +3,7 @@
  * soutiskový motiv podle indexu.
  */
 import type { Album } from "../../data/albums";
+import { asset } from "../../asset";
 
 function CoverMark({ i }: { i: number }) {
   const O = "var(--obili)", S = "var(--stroj)";
@@ -19,7 +20,7 @@ function CoverMark({ i }: { i: number }) {
 
 export default function AlbumCover({ album, index }: { album: Album; index: number }) {
   if (album.cover) {
-    return <img src={album.cover} alt={album.title} loading="lazy"
+    return <img src={asset(album.cover)} alt={album.title} loading="lazy"
       style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />;
   }
   return <CoverMark i={index} />;

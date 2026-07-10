@@ -9,6 +9,7 @@ import { ALBUMS } from "../../data/albums";
 import { CONCERTS } from "../../data/concerts";
 import { SOCIALS } from "../../data/socials";
 import { EMAIL, PROFILE_PHOTO } from "../../data/site";
+import { asset } from "../../asset";
 import type { ArpeggioPlayer } from "../Player/useArpeggioPlayer";
 import AlbumCover from "../Player/AlbumCover";
 import SocialLink from "../core/Social";
@@ -90,7 +91,7 @@ export default function Panels({ openPanel, shownPanel, onClose, texts, lang, pl
 
           {shownPanel === "about" && (
             <Box sx={styles.about}>
-              <Box sx={styles.aboutPhoto}><img src={PROFILE_PHOTO} alt="Jakub Šimanský" loading="lazy" /></Box>
+              <Box sx={styles.aboutPhoto}><img src={asset(PROFILE_PHOTO)} alt="Jakub Šimanský" loading="lazy" /></Box>
               <Box sx={styles.aboutText}>{texts.panels.about.body}</Box>
             </Box>
           )}
